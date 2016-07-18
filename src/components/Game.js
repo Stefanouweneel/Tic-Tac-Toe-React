@@ -11,7 +11,9 @@ class Game extends React.Component {
         '', '', '',
         '', '', '',
         '', '', ''
-      ]
+      ],
+
+      turn: 'x',
     }
 
     this.baseStyle = {
