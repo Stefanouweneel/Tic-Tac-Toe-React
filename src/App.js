@@ -1,13 +1,13 @@
 import React from 'react';
 import Game from './components/Game';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-      <h1>Hello World!</h1>
+      <MuiThemeProvider>
         <Game />
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
