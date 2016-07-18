@@ -11,7 +11,8 @@ class Tiles extends React.Component {
 
   clickHandler() {
     event.preventDefault();
-    console.log(this.props.position)
+    this.props.onClick(this);
+    // console.log(this.props.position)
   }
 
   render() {
