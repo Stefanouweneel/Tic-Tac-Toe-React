@@ -22,8 +22,8 @@ class Game extends React.Component {
     }
   }
 
-  tileClick(position) {
-    console.log(this.props.position)
+  tileClick(childComponent) {
+    console.log(childComponent.props)
   }
 
   render() {
@@ -31,19 +31,19 @@ class Game extends React.Component {
       <div id='game'>
         <Header />
           <div style={this.baseStyle}>
-          <Tiles position={1} />
-          <Tiles position={2} />
-          <Tiles position={3} />
+          <Tiles position={1} onClick={this.tileClick} />
+          <Tiles position={2} onClick={this.tileClick} />
+          <Tiles position={3} onClick={this.tileClick} />
         </div>
         <div style={this.baseStyle}>
-          <Tiles position={4} />
-          <Tiles position={5} />
-          <Tiles position={6} />
+          <Tiles position={4} onClick={this.tileClick} />
+          <Tiles position={5} onClick={this.tileClick} />
+          <Tiles position={6} onClick={this.tileClick} />
         </div>
         <div style={this.baseStyle}>
-          <Tiles position={7} />
-          <Tiles position={8} />
-          <Tiles position={9} />
+          <Tiles position={7} onClick={this.tileClick} />
+          <Tiles position={8} onClick={this.tileClick} />
+          <Tiles position={9} onClick={this.tileClick} />
         </div>
       </div>
     );
