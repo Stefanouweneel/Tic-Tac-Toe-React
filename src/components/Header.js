@@ -1,9 +1,14 @@
 import React from 'react';
 
+const style = {
+  display: 'flex',
+  justifyContent: 'center',
+}
+
 class Header extends React.Component {
   render() {
     return (
-      <div id='header'>
+      <div style={style} id='header'>
         <h1>Tic Tac Toe</h1>
       </div>
     );
