@@ -22,6 +22,10 @@ class Game extends React.Component {
     }
   }
 
+  tileClick(position) {
+    console.log(this.props.position)
+  }
+
   render() {
     return (
       <div id='game'>

@@ -4,14 +4,14 @@ import Paper from 'material-ui/Paper';
 const style = {
   width: 100,
   height: 100,
-  borderWidth: 0.5,
-  borderColor: '#000',
+  margin: 1,
 };
 
 class Tiles extends React.Component {
 
   clickHandler() {
-    this.props.tileClick(this.props.position);
+    event.preventDefault();
+    console.log(this.props.position)
   }
 
   render() {
