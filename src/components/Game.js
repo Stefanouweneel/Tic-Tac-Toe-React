@@ -1,8 +1,6 @@
 import React from 'react';
 import Tiles from './Tiles';
 import Header from './Header';
-import Paper from 'material-ui/Paper';
-
 
 class Game extends React.Component {
   constructor() {
@@ -21,9 +19,21 @@ class Game extends React.Component {
     return (
       <div id='game'>
         <Header />
-        { this.state.tiles.map((position) => {
-          return <Tiles tile={position} />;
-        }, this) }
+          <div>
+          <Tiles position={1} />
+          <Tiles position={2} />
+          <Tiles position={3} />
+        </div>
+        <div>
+          <Tiles position={4} />
+          <Tiles position={5} />
+          <Tiles position={6} />
+        </div>
+        <div>
+          <Tiles position={7} />
+          <Tiles position={8} />
+          <Tiles position={9} />
+        </div>
       </div>
     );
   }

@@ -13,9 +13,7 @@ class Tiles extends React.Component {
   render() {
     return (
       <div>
-        <Paper style={style} zDepth={1}>
-          {this.props.player}
-        </Paper>
+        <Paper style={style} zDepth={2} />
       </div>
     );
   }
