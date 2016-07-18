@@ -1,7 +1,6 @@
 import React from 'react';
-import Game from './components/Game';
 
-class App extends React.Component {
+class Canvas extends Canvas.Component {
     render() {
         return (
             <h1>Hello World!</h1>
@@ -9,4 +8,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default Canvas;
