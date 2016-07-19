@@ -9,7 +9,7 @@ const style = {
   backgroundColor: '#364150',
   fontFamily: Fonts.sansSerif,
   color: 'white',
-  fontSize: 75,
+  fontSize: 63,
   width: 100,
   height: 100,
   margin: 1,

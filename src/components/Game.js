@@ -24,11 +24,14 @@ class Game extends React.Component {
     let tiles = this.state.tiles;
     let player = this.state.turn;
 
+    if ( (tiles[position] === 'x' || tiles[position] === 'o' ) ) return;
+
     tiles[position] = player;
 
     this.setState({
       tiles: tiles,
-      turn: player === 'o' ? 'x' : 'o' });
+      turn: player === 'o' ? 'x' : 'o',
+    });
 
     console.log(tiles)
     console.log(player)
