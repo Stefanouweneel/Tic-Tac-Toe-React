@@ -8,7 +8,6 @@ class Board extends React.Component {
     this.baseStyle = _.merge({
       width: 310,
       height: 310,
-      boxShadow: "1px -1px 5px rgba(0,0,0,0.3)",
     }, props.style || {});
   }
 

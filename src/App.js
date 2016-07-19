@@ -2,12 +2,19 @@ import React from 'react';
 import Game from './components/Game';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+const style = {
+  display: 'flex',
+  justifyContent: 'center',
+}
+
 class App extends React.Component {
   render() {
     return (
-      <MuiThemeProvider>
-        <Game />
-      </MuiThemeProvider>
+      <div style={style}>
+        <MuiThemeProvider>
+          <Game />
+        </MuiThemeProvider>
+      </div>
     );
   }
 }
