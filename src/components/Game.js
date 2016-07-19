@@ -1,8 +1,11 @@
 import React from 'react';
-import Tiles from './Tiles';
+import Tile from './Tile';
 import Header from './Header';
+import Board from '../style/Board';
+import Score from './Score';
 
 class Game extends React.Component {
+
   constructor() {
     super();
 
@@ -13,37 +16,53 @@ class Game extends React.Component {
         '', '', ''
       ],
 
-      turn: 'x',
-    }
-
-    this.baseStyle = {
-      display: 'flex',
-      justifyContent: 'center',
-    }
+      turn: 'o',
+    };
   }
 
-  tileClick(childComponent) {
-    console.log(childComponent.props)
+  playerClick(position) {
+    let tiles = this.state.tiles;
+    let player = this.state.turn;
+
+    tiles[position] = player;
+
+    this.setState({
+      tiles: tiles,
+      turn: player === 'o' ? 'x' : 'o' });
+
+    console.log(tiles)
+    console.log(player)
+    console.log(position)
+  }
+
+  resetGame(event) {
+    event.preventDefault();
+    this.setState({
+      tiles:  [
+          '', '', '',
+          '', '', '',
+          '', '', ''
+      ]
+    });
   }
 
   render() {
     return (
-      <div id='game'>
+      <div>
         <Header />
-          <div style={this.baseStyle}>
-          <Tiles position={1} onClick={this.tileClick} />
-          <Tiles position={2} onClick={this.tileClick} />
-          <Tiles position={3} onClick={this.tileClick} />
-        </div>
-        <div style={this.baseStyle}>
-          <Tiles position={4} onClick={this.tileClick} />
-          <Tiles position={5} onClick={this.tileClick} />
-          <Tiles position={6} onClick={this.tileClick} />
-        </div>
-        <div style={this.baseStyle}>
-          <Tiles position={7} onClick={this.tileClick} />
-          <Tiles position={8} onClick={this.tileClick} />
-          <Tiles position={9} onClick={this.tileClick} />
+        <Board>
+          <div>
+            { this.state.tiles.map((tile,position) => {
+                return (
+                  <Tile player={tile} key={position} position={position} turn={this.state.turn} playerClick={this.playerClick.bind(this)} />
+                );
+              })
+            }
+          </div>
+        </Board>
+        <Score turn={this.state.turn} />
+        <div style={{float: 'right'}}>
+          <button onClick={this.resetGame.bind(this)}> Restart </button>
         </div>
       </div>
     );
