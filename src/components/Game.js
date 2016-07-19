@@ -1,5 +1,5 @@
 import React from 'react';
-import Tiles from './Tiles';
+import Tile from './Tile';
 import Header from './Header';
 import Board from '../style/Board';
 
@@ -19,19 +19,18 @@ class Game extends React.Component {
     };
   }
 
-  playerClick(position, player) {
+  playerClick(position) {
     let tiles = this.state.tiles;
-    let turn = this.state.turn;
+    let player = this.state.turn;
 
     tiles[position] = player;
 
     this.setState({
-    tiles: tiles,
-    turn: player === 'o' ? 'x' : 'o' });
+      tiles: tiles,
+      turn: player === 'o' ? 'x' : 'o' });
 
     console.log(player)
-    console.log(this.state.tiles[position])
-    console.log(this.state.turn)
+    console.log(position)
   }
 
   render() {
@@ -42,9 +41,9 @@ class Game extends React.Component {
           <div>
             { this.state.tiles.map((tile,position) => {
                 return (
-                <Tiles status={tile} key={position} turn={this.state.turn} playerClick={this.playerClick.bind(this)} />
+                  <Tile player={tile} key={position} position={position} turn={this.state.turn} playerClick={this.playerClick.bind(this)} />
                 );
-              }, this)
+              })
             }
           </div>
         </Board>
