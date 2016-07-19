@@ -3,6 +3,11 @@ import Tile from './Tile';
 import Header from './Header';
 import Board from '../style/Board';
 
+const style = {
+  display: 'flex',
+  justifyContent: 'center',
+}
+
 class Game extends React.Component {
 
   constructor() {
@@ -29,8 +34,20 @@ class Game extends React.Component {
       tiles: tiles,
       turn: player === 'o' ? 'x' : 'o' });
 
+    console.log(tiles)
     console.log(player)
     console.log(position)
+  }
+
+  resetGame(event) {
+    event.preventDefault();
+    this.setState({
+      tiles:  [
+          '', '', '',
+          '', '', '',
+          '', '', ''
+      ]
+    });
   }
 
   render() {
@@ -47,6 +64,9 @@ class Game extends React.Component {
             }
           </div>
         </Board>
+        <div style={style}>
+          <button onClick={this.resetGame.bind(this)}> Restart </button>
+        </div>
       </div>
     );
   }

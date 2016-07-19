@@ -20,7 +20,7 @@ class Tile extends React.Component {
   render() {
     return (
       <div>
-        <Paper style={style} zDepth={1} position={this.props.position} onClick={this.clickHandler.bind(this)}>
+        <Paper style={style} zDepth={1} position={this.props.position} onClick={this.clickHandler.bind(this)} >
         {this.props.player}
         </Paper>
       </div>
