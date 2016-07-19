@@ -1,6 +1,7 @@
 import React from 'react';
 import Tiles from './Tiles';
 import Header from './Header';
+import Board from '../style/Board';
 
 class Game extends React.Component {
   constructor() {
@@ -22,28 +23,26 @@ class Game extends React.Component {
     }
   }
 
-  tileClick(childComponent) {
-    console.log(childComponent.props)
+  tileClick(position, player) {
+    console.log(position)
+    console.log(player)
+    let tiles = this.state.tiles;
+    if ( (tiles[position] === 'x' || tiles[position] === 'o') ) return;
+    tiles[position] = player;
+    this.setState({tiles: tiles, turn: player === 'o' ? 'x' : 'o'});
   }
 
   render() {
     return (
       <div id='game'>
         <Header />
-          <div style={this.baseStyle}>
-          <Tiles position={1} onClick={this.tileClick} />
-          <Tiles position={2} onClick={this.tileClick} />
-          <Tiles position={3} onClick={this.tileClick} />
-        </div>
         <div style={this.baseStyle}>
-          <Tiles position={4} onClick={this.tileClick} />
-          <Tiles position={5} onClick={this.tileClick} />
-          <Tiles position={6} onClick={this.tileClick} />
-        </div>
-        <div style={this.baseStyle}>
-          <Tiles position={7} onClick={this.tileClick} />
-          <Tiles position={8} onClick={this.tileClick} />
-          <Tiles position={9} onClick={this.tileClick} />
+          <Board>
+            { this.state.tiles.map((tile, position) => {
+               return (
+                <Tiles status={tile} key={position} position={position} turn={this.state.turn} tileClick={this.tileClick} /> );
+             }, this) }
+          </Board>
         </div>
       </div>
     );

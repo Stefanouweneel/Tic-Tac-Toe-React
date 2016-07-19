@@ -11,14 +11,14 @@ class Tiles extends React.Component {
 
   clickHandler() {
     event.preventDefault();
-    this.props.onClick(this);
-    // console.log(this.props.position)
+    this.props.tileClick(this.props.key, this.props.turn, this.props.position);
   }
 
   render() {
     return (
       <div>
-        <Paper style={style} zDepth={1} onClick={this.clickHandler.bind(this)}/>
+        <Paper style={style} zDepth={1} className={this.props.status === '' ? 'tile' : 'tile status-' + this.props.status} onClick={this.clickHandler} />
+        {this.props.status}
       </div>
     );
   }
