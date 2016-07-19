@@ -4,10 +4,6 @@ import Header from './Header';
 import Board from '../style/Board';
 import Score from './Score';
 
-const style = {
-  float: 'right',
-}
-
 class Game extends React.Component {
 
   constructor() {
@@ -65,7 +61,7 @@ class Game extends React.Component {
           </div>
         </Board>
         <Score turn={this.state.turn} />
-        <div style={style}>
+        <div style={{float: 'right'}}>
           <button onClick={this.resetGame.bind(this)}> Restart </button>
         </div>
       </div>

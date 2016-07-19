@@ -1,10 +1,14 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
+import Fonts from '../style/Fonts';
 
 const style = {
   display: 'inlineBlock',
   textAlign: 'center',
   float: 'left',
+  backgroundColor: '#364150',
+  fontFamily: Fonts.sansSerif,
+  color: 'white',
   fontSize: 75,
   width: 100,
   height: 100,

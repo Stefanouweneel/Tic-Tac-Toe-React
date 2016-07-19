@@ -1,8 +1,10 @@
 import React from 'react';
+import Fonts from '../style/Fonts';
 
 const style = {
   display: 'flex',
   justifyContent: 'center',
+  fontFamily: Fonts.sansSerif,
 }
 
 class Header extends React.Component {
