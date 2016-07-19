@@ -2,10 +2,10 @@ import React from 'react';
 import Tile from './Tile';
 import Header from './Header';
 import Board from '../style/Board';
+import Score from './Score';
 
 const style = {
-  display: 'flex',
-  justifyContent: 'center',
+  float: 'right',
 }
 
 class Game extends React.Component {
@@ -53,7 +53,7 @@ class Game extends React.Component {
   render() {
     return (
       <div>
-        <Header turn={this.state.turn} />
+        <Header />
         <Board>
           <div>
             { this.state.tiles.map((tile,position) => {
@@ -64,6 +64,7 @@ class Game extends React.Component {
             }
           </div>
         </Board>
+        <Score turn={this.state.turn} />
         <div style={style}>
           <button onClick={this.resetGame.bind(this)}> Restart </button>
         </div>
