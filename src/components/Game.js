@@ -105,9 +105,9 @@ class Game extends React.Component {
     event.preventDefault();
     this.setState({
       tiles:  [
-          '', '', '',
-          '', '', '',
-          '', '', ''
+        '', '', '',
+        '', '', '',
+        '', '', ''
       ],
       turn: 'o',
       winner: '',
