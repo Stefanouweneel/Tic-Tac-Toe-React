@@ -3,12 +3,12 @@ import Tile from './Tile';
 import Header from './Header';
 import Score from './Score';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Card} from 'material-ui/Card';
 
 const style = {
   width: 306,
-  height: 310,
-  paddingTop: 8,
-  paddingBottom: 8,
+  height: 306,
+  marginBottom: 10,
 }
 
 const buttonStyle = {
@@ -95,7 +95,7 @@ class Game extends React.Component {
     return (
       <div>
         <Header />
-        <div style={style}>
+        <Card style={style}>
           <div>
             { this.state.tiles.map((tile,position) => {
                 return (
@@ -104,7 +104,7 @@ class Game extends React.Component {
               })
             }
           </div>
-        </div>
+        </Card>
         <Score turn={this.state.turn} winner={this.state.winner} />
         <div>
           <RaisedButton label="Restart" fullWidth={true} style={buttonStyle} onClick={this.resetGame.bind(this)} />

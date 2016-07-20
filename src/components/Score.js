@@ -1,5 +1,6 @@
 import React from 'react';
 import Fonts from '../style/Fonts';
+import {Card} from 'material-ui/Card';
 
 const style = {
   width: 306,
@@ -13,16 +14,16 @@ class Score extends React.Component {
   render() {
     if (this.props.winner === 'o' || this.props.winner === 'x') {
       return (
-        <div style={style}>
+        <Card style={style}>
           <h3>Player {this.props.winner} won!</h3>
-        </div>
+        </Card>
       );
     }
     else {
       return (
-        <div style={style}>
+        <Card style={style}>
           <h3>Player {this.props.turn}'s turn.</h3>
-        </div>
+        </Card>
       );
     }
     }
