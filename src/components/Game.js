@@ -28,6 +28,8 @@ class Game extends React.Component {
       ],
       turn: 'o',
       winner: '',
+      scoreO: 0,
+      scoreX: 0,
     };
   }
 
@@ -44,7 +46,7 @@ class Game extends React.Component {
         (t[2] === 'o' && t[4] === 'o' && t[6] === 'o')) {
 
         return 'o';
-      }
+    }
 
     if ((t[0] === 'x' && t[1] === 'x' && t[2] === 'x') ||
         (t[3] === 'x' && t[4] === 'x' && t[5] === 'x') ||
@@ -56,7 +58,8 @@ class Game extends React.Component {
         (t[2] === 'x' && t[4] === 'x' && t[6] === 'x')) {
 
         return 'x';
-        }
+    }
+    this.plusOne();
   }
 
   playerClick(position) {
@@ -76,6 +79,22 @@ class Game extends React.Component {
     console.log(tiles)
     console.log(player)
     console.log(position)
+    console.log(winner)
+  }
+
+  plusOne() {
+    let winner = this.state.winner;
+
+      if (winner === 'o') {
+        this.setState({
+          scoreO: this.state.scoreO + 1
+        });
+      }
+      if (winner === 'x') {
+        this.setState({
+          scoreX: this.state.scoreX + 1
+        });
+      }
   }
 
   resetGame(event) {
@@ -99,15 +118,15 @@ class Game extends React.Component {
           <div>
             { this.state.tiles.map((tile,position) => {
                 return (
-                  <Tile player={tile} key={position} position={position} turn={this.state.turn} playerClick={this.playerClick.bind(this)} />
+                  <Tile player={tile} key={position} position={position} turn={ this.state.turn } playerClick={ this.playerClick.bind(this) } />
                 );
               })
             }
           </div>
         </Card>
-        <Score turn={this.state.turn} winner={this.state.winner} />
+        <Score turn={ this.state.turn } scoreO={ this.state.scoreO } scoreX={ this.state.scoreX } winner={ this.state.winner }/>
         <div>
-          <RaisedButton label="Restart" fullWidth={true} style={buttonStyle} onClick={this.resetGame.bind(this)} />
+          <RaisedButton label="Restart" fullWidth={true} style={buttonStyle} onClick={ this.resetGame.bind(this) } />
         </div>
       </div>
     );

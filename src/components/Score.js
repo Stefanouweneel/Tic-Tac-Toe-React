@@ -11,22 +11,17 @@ const style = {
 }
 
 class Score extends React.Component {
+
   render() {
-    if (this.props.winner === 'o' || this.props.winner === 'x') {
-      return (
-        <Card style={style}>
-          <h3>Player {this.props.winner} won!</h3>
-        </Card>
-      );
-    }
-    else {
-      return (
-        <Card style={style}>
-          <h3>Player {this.props.turn}'s turn.</h3>
-        </Card>
-      );
-    }
-    }
+    return (
+      <Card style={style}>
+        <h3>Player { this.props.turn }s turn.</h3>
+        <h3>Player { this.props.winner } has won!</h3>
+        <p>Player X has a score of: { this.props.scoreO } <br />
+        Player O has a score of: { this.props.scoreX }</p>
+      </Card>
+    );
+  }
 }
 
 export default Score;
