@@ -66,13 +66,13 @@ class Game extends React.Component {
     let player = this.state.turn;
     let winner = this.state.winner;
 
-      if ( (tiles[position] === 'x' || tiles[position] === 'o' || winner === 'x' || winner === 'o' ) ) return;
-      tiles[position] = player;
+    if ( (tiles[position] === 'x' || tiles[position] === 'o' || winner === 'x' || winner === 'o' ) ) return;
+    tiles[position] = player;
 
-      this.setState({
-        tiles: tiles,
-        turn: player === 'o' ? 'x' : 'o',
-      });
+    this.setState({
+      tiles: tiles,
+      turn: player === 'o' ? 'x' : 'o',
+    });
 
     this.setScore();
 
