@@ -74,7 +74,7 @@ class Game extends React.Component {
         turn: player === 'o' ? 'x' : 'o',
       });
 
-    this.plusOne();
+    this.setScore();
 
     console.log(tiles)
     console.log(player)
@@ -82,7 +82,7 @@ class Game extends React.Component {
     console.log(winner)
   }
 
-  plusOne() {
+  setScore() {
     let scoreX = this.state.scoreX;
     let scoreO = this.state.scoreO;
     let winner = this.checkWinner();
