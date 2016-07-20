@@ -2,6 +2,7 @@ import React from 'react';
 import Tile from './Tile';
 import Header from './Header';
 import Board from '../style/Board';
+import Score from './Score';
 
 class Game extends React.Component {
 
@@ -15,6 +16,7 @@ class Game extends React.Component {
         '', '', ''
       ],
       turn: 'o',
+      winner: '',
     };
   }
 
@@ -29,8 +31,9 @@ class Game extends React.Component {
         (t[2] === 'o' && t[5] === 'o' && t[8] === 'o') ||
         (t[0] === 'o' && t[4] === 'o' && t[8] === 'o') ||
         (t[2] === 'o' && t[4] === 'o' && t[6] === 'o')) {
-        alert('Player o has won');
-    };
+
+        return 'o';
+      }
 
     if ((t[0] === 'x' && t[1] === 'x' && t[2] === 'x') ||
         (t[3] === 'x' && t[4] === 'x' && t[5] === 'x') ||
@@ -40,15 +43,17 @@ class Game extends React.Component {
         (t[2] === 'x' && t[5] === 'x' && t[8] === 'x') ||
         (t[0] === 'x' && t[4] === 'x' && t[8] === 'x') ||
         (t[2] === 'x' && t[4] === 'x' && t[6] === 'x')) {
-        alert('Player x has won');
-    };
+
+        return 'x';
+        }
   }
 
   playerClick(position) {
     let tiles = this.state.tiles;
     let player = this.state.turn;
+    let winner = this.state.winner;
 
-      if ( (tiles[position] === 'x' || tiles[position] === 'o') ) return;
+      if ( (tiles[position] === 'x' || tiles[position] === 'o' || winner === 'x' || winner === 'o' ) ) return;
       tiles[position] = player;
 
       this.setState({
@@ -60,6 +65,7 @@ class Game extends React.Component {
     console.log(tiles)
     console.log(player)
     console.log(position)
+    console.log(winner)
   }
 
   resetGame(event) {
@@ -71,6 +77,7 @@ class Game extends React.Component {
           '', '', ''
       ],
       turn: 'o',
+      winner: '',
     });
   }
 
@@ -88,6 +95,7 @@ class Game extends React.Component {
             }
           </div>
         </Board>
+        <Score turn={this.state.turn} winner={this.state.winner} />
         <div style={{float: 'right'}}>
           <button onClick={this.resetGame.bind(this)}> Restart </button>
         </div>
