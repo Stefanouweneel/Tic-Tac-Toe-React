@@ -1,8 +1,19 @@
 import React from 'react';
 import Tile from './Tile';
 import Header from './Header';
-import Board from '../style/Board';
 import Score from './Score';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const style = {
+  width: 306,
+  height: 310,
+  paddingTop: 8,
+  paddingBottom: 8,
+}
+
+const buttonStyle = {
+  marginTop: 10,
+}
 
 class Game extends React.Component {
 
@@ -65,7 +76,6 @@ class Game extends React.Component {
     console.log(tiles)
     console.log(player)
     console.log(position)
-    console.log(winner)
   }
 
   resetGame(event) {
@@ -85,7 +95,7 @@ class Game extends React.Component {
     return (
       <div>
         <Header />
-        <Board>
+        <div style={style}>
           <div>
             { this.state.tiles.map((tile,position) => {
                 return (
@@ -94,10 +104,10 @@ class Game extends React.Component {
               })
             }
           </div>
-        </Board>
+        </div>
         <Score turn={this.state.turn} winner={this.state.winner} />
-        <div style={{float: 'right'}}>
-          <button onClick={this.resetGame.bind(this)}> Restart </button>
+        <div>
+          <RaisedButton label="Restart" fullWidth={true} style={buttonStyle} onClick={this.resetGame.bind(this)} />
         </div>
       </div>
     );

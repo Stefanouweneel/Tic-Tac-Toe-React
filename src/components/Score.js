@@ -2,9 +2,11 @@ import React from 'react';
 import Fonts from '../style/Fonts';
 
 const style = {
-  height: 50,
-  width: 150,
+  width: 306,
+  display: 'flex',
+  justifyContent: 'center',
   fontFamily: Fonts.sansSerif,
+  backgroundColor: '#D3D3D3',
 }
 
 class Score extends React.Component {
