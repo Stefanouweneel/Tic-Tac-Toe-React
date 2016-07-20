@@ -17,8 +17,8 @@ class Score extends React.Component {
       <Card style={style}>
         <h3>Player { this.props.turn }s turn.</h3>
         <h3>Player { this.props.winner } has won!</h3>
-        <p>Player X has a score of: { this.props.scoreO } <br />
-        Player O has a score of: { this.props.scoreX }</p>
+        <p>Player X has a score of: { this.props.scoreX } <br />
+        Player O has a score of: { this.props.scoreO }</p>
       </Card>
     );
   }

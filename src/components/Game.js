@@ -28,8 +28,8 @@ class Game extends React.Component {
       ],
       turn: 'o',
       winner: '',
-      scoreO: 0,
-      scoreX: 0,
+      scoreO: null,
+      scoreX: null,
     };
   }
 
@@ -59,7 +59,6 @@ class Game extends React.Component {
 
         return 'x';
     }
-    this.plusOne();
   }
 
   playerClick(position) {
@@ -67,13 +66,16 @@ class Game extends React.Component {
     let player = this.state.turn;
     let winner = this.state.winner;
 
-      if ( (tiles[position] === 'x' || tiles[position] === 'o' || winner === 'x' || winner === 'o' ) ) return;
+    if ( (winner === 'x' || winner === 'o' ) ) return;
+
+    this.plusOne();
+
+      if ( (tiles[position] === 'x' || tiles[position] === 'o' ) ) return;
       tiles[position] = player;
 
       this.setState({
         tiles: tiles,
         turn: player === 'o' ? 'x' : 'o',
-        winner: this.checkWinner(),
       });
 
     console.log(tiles)
@@ -83,16 +85,20 @@ class Game extends React.Component {
   }
 
   plusOne() {
-    let winner = this.state.winner;
+    let scoreX = this.state.scoreX;
+    let scoreO = this.state.scoreO;
+    let winner = this.checkWinner();
 
       if (winner === 'o') {
         this.setState({
-          scoreO: this.state.scoreO + 1
+          scoreO: scoreO + 1,
+          winner: 'o'
         });
       }
       if (winner === 'x') {
         this.setState({
-          scoreX: this.state.scoreX + 1
+          scoreX: scoreX + 1,
+          winner: 'x'
         });
       }
   }
@@ -126,7 +132,7 @@ class Game extends React.Component {
         </Card>
         <Score turn={ this.state.turn } scoreO={ this.state.scoreO } scoreX={ this.state.scoreX } winner={ this.state.winner }/>
         <div>
-          <RaisedButton label="Restart" fullWidth={true} style={buttonStyle} onClick={ this.resetGame.bind(this) } />
+          <RaisedButton label="New Game" fullWidth={true} style={buttonStyle} onClick={ this.resetGame.bind(this) } />
         </div>
       </div>
     );
