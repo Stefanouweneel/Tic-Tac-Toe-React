@@ -15,7 +15,7 @@ class Header extends React.Component {
   render() {
     return (
       <Card style={style}>
-        <h1>Tic Tac React</h1>
+        <h2>Tic Tac React</h2>
       </Card>
     );
   }
