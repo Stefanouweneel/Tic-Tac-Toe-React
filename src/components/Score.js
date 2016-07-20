@@ -9,16 +9,27 @@ const style = {
 
 class Score extends React.Component {
   render() {
-    return (
+    if (this.props.winner === 'n') {
+      return (
       <div style={style}>
-        <div>
-          <h3>Player {this.props.turn}'s turn.</h3>
-        </div>
-        <div>
-          <h3>Score: </h3>
-        </div>
+        <h3>Player {this.props.turn}s turn.</h3>
       </div>
-    );
+      );
+    }
+    if (this.props.winner === 'n' || this.props.winner === 'd') {
+      return (
+        <div style={style}>
+          <h3>Player {this.props.winner} won!</h3>
+        </div>
+      );
+    }
+    // if (this.props.winner === 'd') {
+    //   return (
+    //     <div style={style}>
+    //       <h3>It is a draw!</h3>
+    //     </div>
+    //   )
+    // }
   }
 }
 
