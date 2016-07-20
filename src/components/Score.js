@@ -10,6 +10,8 @@ const style = {
   paddingRight: 10,
   display: 'flex',
   justifyContent: 'center',
+  alignItems: 'center',
+  textAlign: 'center',
   fontFamily: Fonts.sansSerif,
   backgroundColor: '#D3D3D3',
 }
@@ -22,7 +24,7 @@ class Score extends React.Component {
 
   renderWinner() {
     if (this.props.winner === 'x'|| this.props.winner === 'o') {
-        return <h3><FontIcon className="material-icons" style={iconStyles} color={yellow500}>star_rate</FontIcon>Player { this.props.winner } has won!<FontIcon className="material-icons" style={iconStyles} color={yellow500}>star_rate</FontIcon></h3>;
+        return <h3><FontIcon className="material-icons" style={iconStyles} color={yellow500}>star_rate</FontIcon>Player { this.props.winner.toUpperCase() } has won! <FontIcon className="material-icons" style={iconStyles} color={yellow500}>star_rate</FontIcon></h3>;
     }
     return null;
   }
@@ -31,7 +33,7 @@ class Score extends React.Component {
     return (
       <Card style={style}>
         {this.renderWinner()}
-        <p>Player { this.props.turn }s turn.</p>
+        <p>{ this.props.turn.toUpperCase() }! It is your turn!</p>
         <p>Player X has a score of: { this.props.scoreX } <br />
         Player O has a score of: { this.props.scoreO }</p>
       </Card>
